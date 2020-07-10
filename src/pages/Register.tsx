@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { APIHelper } from '../helpers/APIHelper';
 import { GenericHelper } from '../helpers/GenericHelper';
@@ -239,6 +239,7 @@ const BackgroundImage = styled.div`
   background-blend-mode: color-dodge;
   background-color: #0f110e;
   background-size: cover;
+  padding-bottom: 5rem;
 `;
 
 const PreTitle = styled.div`
