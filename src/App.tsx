@@ -1,3 +1,4 @@
+import './styles/animations.css';
 import './styles/App.css';
 
 import React from 'react';

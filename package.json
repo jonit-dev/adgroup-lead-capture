@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "react": "^16.13.1",

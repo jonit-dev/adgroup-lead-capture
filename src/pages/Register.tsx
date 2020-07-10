@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -6,9 +7,7 @@ import { GenericHelper } from '../helpers/GenericHelper';
 import { ValidationHelper } from '../helpers/ValidationHelper';
 import { IUserInfo } from '../types/user.types';
 
-interface IProps {}
-
-export const Register: React.FC<IProps> = (props) => {
+export const Register: React.FC = (props) => {
   const promoterId = GenericHelper.getUrlQueryParamByName("promoterId");
   const payerId = GenericHelper.getUrlQueryParamByName("payerId"); // AdGroup
 
@@ -71,6 +70,18 @@ export const Register: React.FC<IProps> = (props) => {
     setLeadCaptured(true);
   };
 
+  const onRedirectWhatsAppGroup = () => {
+    const whatsappGroups = [
+      "https://chat.whatsapp.com/CazUdtBgw09BAvA8bISqPL",
+      "https://chat.whatsapp.com/D9JjLqXmxb54Oc1Q0P9FjE",
+      "https://chat.whatsapp.com/Jk8g22tmH0w9U8lg18gNeQ",
+    ];
+
+    const randomGroup = _.sample(whatsappGroups);
+
+    GenericHelper.crossBrowserUrlRedirect(randomGroup);
+  };
+
   const onRenderLeadCaptureForm = () => {
     if (!leadCaptured) {
       return (
@@ -88,11 +99,24 @@ export const Register: React.FC<IProps> = (props) => {
             placeholder="E-mail"
             type="email"
           />
-          <Button>Participar</Button>
+          <Button className="jello-horizontal" color="red">
+            Participar
+          </Button>
         </Form>
       );
     } else {
-      return <p>Show whatsapp group invite</p>;
+      return (
+        <WhatsAppContainer>
+          <p>Participe também de nosso grupo no WhatsApp! CLIQUE ABAIXO!</p>
+          <Button
+            className="jello-horizontal"
+            color="#24CD63"
+            onClick={onRedirectWhatsAppGroup}
+          >
+            Acessar Grupo do WhatsApp
+          </Button>
+        </WhatsAppContainer>
+      );
     }
   };
 
@@ -126,6 +150,20 @@ const Container = styled.div`
   align-items: flex-start;
   max-width: 600px;
   margin: 0 auto;
+`;
+
+const WhatsAppContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 86%;
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+  }
 `;
 
 const Headline = styled.div`
@@ -163,7 +201,7 @@ const InputText = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: red;
+  background-color: ${({ color }) => color};
   border-radius: 2px;
   color: white;
   text-align: center;
@@ -171,9 +209,14 @@ const Button = styled.button`
   -ms-flex: 100%;
   flex: 100%;
   height: 52px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   border: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
 `;
 
 const Date = styled.div`

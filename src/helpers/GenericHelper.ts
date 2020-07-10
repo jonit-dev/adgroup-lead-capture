@@ -9,6 +9,17 @@ export class GenericHelper {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
 
+  public static crossBrowserUrlRedirect = (url: string, newPage?: false) => {
+    if (newPage) {
+      GenericHelper.windowOpen(url);
+    }
+
+    // https://stackoverflow.com/a/31223302/3192151
+    setTimeout(function () {
+      document.location.href = url;
+    }, 250);
+  };
+
   public static windowOpen(url: string) {
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
