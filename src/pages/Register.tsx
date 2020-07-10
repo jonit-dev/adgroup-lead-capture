@@ -107,13 +107,16 @@ export const Register: React.FC = (props) => {
     } else {
       return (
         <WhatsAppContainer>
-          <p>Participe também de nosso grupo no WhatsApp! CLIQUE ABAIXO!</p>
+          <p>
+            Participe também de nosso grupo no WhatsApp e receba o aviso do
+            Aulão! CLIQUE ABAIXO!
+          </p>
           <Button
             className="jello-horizontal"
             color="#24CD63"
             onClick={onRedirectWhatsAppGroup}
           >
-            Acessar Grupo do WhatsApp
+            Receber Aviso do Aulão
           </Button>
         </WhatsAppContainer>
       );
