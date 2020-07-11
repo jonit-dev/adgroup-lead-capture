@@ -107,6 +107,15 @@ export const Register: React.FC = (props) => {
     } else {
       return (
         <WhatsAppContainer>
+          <VideoResponsive>
+            <iframe
+              title="aulao"
+              src="https://www.youtube.com/embed/OqaCaLY5HKA"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </VideoResponsive>
           <p>
             Participe também de nosso grupo no WhatsApp e receba o aviso do
             Aulão! CLIQUE ABAIXO!
@@ -140,13 +149,12 @@ export const Register: React.FC = (props) => {
 };
 
 const Logo = styled.img`
-  max-width: 200px;
+  max-width: 140px;
   padding-top: 1rem;
 `;
 
 const Container = styled.div`
   width: 100%;
-  height: 85%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -233,11 +241,12 @@ const Date = styled.div`
   line-height: 4rem;
   color: #ffcd37;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  line-height: 1.5;
+  margin-bottom: 1.3rem;
 `;
 
 const BackgroundImage = styled.div`
   width: 100%;
-  height: 100%;
   background: url("/register-bkg.jpg") no-repeat center;
   background-blend-mode: color-dodge;
   background-color: #0f110e;
@@ -258,8 +267,17 @@ const Title = styled.div`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #ffffff;
   margin-top: 5px;
   background-color: #0000007a;
+`;
+
+const VideoResponsive = styled.div`
+  width: 100%;
+
+  iframe {
+    width: 100%;
+    height: 160px;
+  }
 `;
