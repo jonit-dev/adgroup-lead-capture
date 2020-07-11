@@ -180,6 +180,7 @@ const WhatsAppContainer = styled.div`
 const Headline = styled.div`
   text-align: center;
   flex: 100%;
+  max-width: 100%;
 `;
 
 const Body = styled.div`
