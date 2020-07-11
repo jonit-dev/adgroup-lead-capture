@@ -249,7 +249,7 @@ const Date = styled.div`
 const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
-  background: url("/register-bkg.jpg") no-repeat center;
+  background: url("/register-bkg.jpg") repeat center;
   background-blend-mode: color-dodge;
   background-color: #0f110e;
   background-size: cover;
